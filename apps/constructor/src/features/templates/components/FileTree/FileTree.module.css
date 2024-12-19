@@ -1,0 +1,67 @@
+.dropzone {
+  height: 100%;
+
+  &_droppable {
+    background-color: var(--mantine-color-blue-light-hover);
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  padding: rem(4px) rem(8px);
+  gap: rem(8px);
+  height: 32px;
+
+  &:hover {
+    background-color: var(--mantine-color-blue-0);
+
+    [data-mantine-color-scheme='dark'] & {
+      background-color: rgba(24, 100, 171, 0.45);
+    }
+  }
+
+  &.active {
+    background-color: var(--mantine-color-blue-0);
+
+    [data-mantine-color-scheme='dark'] & {
+      background-color: rgba(24, 100, 171, 0.45);
+    }
+  }
+}
+
+.file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.icon-wrapper {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  padding: 0 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list {
+  flex: 1;
+}

@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  position: relative;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  height: 100%;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  width: 100%;
+
+  *::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 5px;
+    height: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: var(--mantine-color-dimmed);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  }
+
+  *::-webkit-scrollbar-corner {
+    -webkit-appearance: none;
+  }
+
+  .split-view-view {
+    height: 100%;
+  }
+}

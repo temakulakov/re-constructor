@@ -1,0 +1,40 @@
+.wrapper {
+  --text-color: #000 !important;
+  --primary-color: #fff !important;
+  --secondary-color: #f9f9f9 !important;
+  --tertiary-color: rgba(61, 61, 61, 1) !important;
+  --accent-color: #e7ff88 !important;
+  --secondary-accent-color: #ddd !important;
+  --tertiary-accent-color: #e7ff88 !important;
+  --padding: 50px;
+
+  @mixin smaller-than $breakpoint-xl {
+    --padding: 40px;
+  }
+
+  @mixin smaller-than $breakpoint-lg {
+    --padding: 30px;
+  }
+
+  background-color: rgb(249, 249, 249) !important;
+  color: rgb(0, 0, 0) !important;
+
+  * {
+    font-family: 'Suisse Intl', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+}
+
+.dark {
+  --text-color: #fff !important;
+  --primary-color: #000 !important;
+  --secondary-color: #000 !important;
+  --tertiary-color: rgba(255, 255, 255, 0.28) !important;
+  --accent-color: #e7ff88 !important;
+  --secondary-accent-color: #ddd !important;
+  --tertiary-accent-color: #e7ff88 !important;
+
+  background-color: #000 !important;
+  color: #fff !important;
+}

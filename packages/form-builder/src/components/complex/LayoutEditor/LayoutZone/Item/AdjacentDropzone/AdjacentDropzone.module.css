@@ -1,0 +1,22 @@
+.dropzone {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  left: 0;
+
+  &__top {
+    top: 0;
+
+    &_active {
+      border-top: 8px solid var(--mantine-primary-color-filled);
+    }
+  }
+
+  &__bottom {
+    bottom: 0;
+
+    &_active {
+      border-bottom: 8px solid var(--mantine-primary-color-filled);
+    }
+  }
+}

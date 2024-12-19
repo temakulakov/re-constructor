@@ -1,0 +1,52 @@
+{
+  "name": "finch-cloud",
+  "author": "Finch",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": {
+    "url": "git@git.finch.fm:front-end/re-constructor.git"
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install",
+    "build": "turbo run build --include-dependencies",
+    "codegen": "turbo run codegen",
+    "dev": "turbo run dev --no-cache --parallel --continue",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{js,jsx,ts,tsx,md}\"",
+    "sync": "syncpack fix-mismatches --config syncpack.config.js",
+    "change": "beachball change",
+    "publish": "beachball publish -y",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch"
+  },
+  "workspaces": [
+    "./packages/*",
+    "./apps/*"
+  ],
+  "publishConfig": {
+    "@finch-cloud:registry": "https://git.finch.fm/api/v4/projects/1051/packages/npm/"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "npm run sync",
+      "npm run format"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.8",
+    "beachball": "^2.39.0",
+    "husky": "^8.0.3",
+    "jest": "^28.1.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.2",
+    "syncpack": "^11.2.1",
+    "ts-jest": "^28.0.8",
+    "turbo": "^1.11.3",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.17.0 <=20"
+  }
+}

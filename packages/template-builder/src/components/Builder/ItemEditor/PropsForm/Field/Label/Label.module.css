@@ -1,0 +1,4 @@
+.wrapper {
+  display: inline-flex;
+  padding-right: rem(4px);
+}

@@ -1,0 +1,7 @@
+.name {
+  padding: 5px 5px 5px 1px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  flex: 1;
+}

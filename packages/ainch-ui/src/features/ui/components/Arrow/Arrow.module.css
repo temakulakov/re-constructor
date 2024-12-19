@@ -1,0 +1,10 @@
+.arrow {
+  display: block;
+  width: 40px;
+  height: 40px;
+
+  @mixin smaller-than $breakpoint-lg {
+    width: calc(40px * 0.7);
+    height: calc(40px * 0.7);
+  }
+}

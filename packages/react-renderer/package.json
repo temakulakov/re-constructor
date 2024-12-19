@@ -1,0 +1,66 @@
+{
+  "name": "@finch-cloud/react-renderer",
+  "version": "0.3.0",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs"
+    },
+    "./dist/": "./dist/"
+  },
+  "scripts": {
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "lint": "eslint 'src/**/*.{js,ts,jsx,tsx}' --quiet --fix",
+    "prepublishOnly": "npm run build"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "publishConfig": {
+    "@finch-cloud:registry": "https://git.finch.fm/api/v4/projects/1051/packages/npm/"
+  },
+  "repository": {
+    "url": "git@git.finch.fm:finch-cloud/react-constructor.git",
+    "directory": "packages/react-renderer"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "qs": "^6.11.2"
+  },
+  "peerDependencies": {
+    "@finch-cloud/common": "workspace:*",
+    "@finch-cloud/form-builder": "workspace:*",
+    "@finch-cloud/ainch-ui": "workspace:*",
+    "@mantine/core": "^7.2.2",
+    "@mantine/dates": "^7.2.2",
+    "@mantine/hooks": "^7.2.2",
+    "@tanstack/react-query": "^4.35.7",
+    "axios": "^1.6.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.46.2",
+    "react-hook-form-mantine": "^3.1.3",
+    "react-icons": "^4.11.0",
+    "zod": "^3.22.4",
+    "zustand": "^4.4.7"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.199",
+    "@types/node": "^20.10.5",
+    "@types/qs": "^6.9.11",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "eslint": "^8.56.0",
+    "eslint-config-base": "workspace:*",
+    "postcss": "^8.4.30",
+    "postcss-preset-mantine": "^1.12.3",
+    "tsconfig": "workspace:*",
+    "tsup": "8.0.1",
+    "typescript": "^5.3.3"
+  }
+}

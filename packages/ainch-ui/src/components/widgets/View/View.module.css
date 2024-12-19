@@ -1,0 +1,67 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100vh;
+
+  &::before,
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    background-color: rgba(86, 86, 86, 0.15);
+    z-index: 10;
+  }
+
+  &::before,
+  &::after {
+    top: 0;
+    width: 1px;
+    height: 100%;
+  }
+
+  &::after {
+    right: var(--padding);
+  }
+
+  &::before {
+    left: var(--padding);
+  }
+
+  @mixin smaller-than $breakpoint-lg {
+    padding-bottom: 40px;
+  }
+
+  & > * {
+    flex-grow: 0;
+    width: 100%;
+  }
+
+  & .content {
+    flex-grow: 1;
+  }
+}
+
+.content {
+}
+
+.line {
+  position: relative;
+  height: 100px;
+
+  &::before {
+    display: block;
+    content: '';
+    position: absolute;
+    background-color: rgba(86, 86, 86, 0.15);
+    z-index: 10;
+    width: 1px;
+    height: 100%;
+    left: calc(100% / 3);
+    top: 0;
+  }
+
+  @mixin smaller-than $breakpoint-lg {
+    display: none;
+  }
+}

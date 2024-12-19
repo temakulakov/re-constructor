@@ -1,0 +1,61 @@
+.image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: 100%;
+
+  @mixin smaller-than $breakpoint-xl {
+    height: 100%;
+    width: auto;
+  }
+}
+
+.text {
+  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
+    &:first-child,
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-child,
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.caption {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.block {
+  position: relative;
+}
+
+.title {
+  display: inline-block;
+  margin-bottom: 0.5em;
+
+  @mixin smaller-than $breakpoint-lg {
+    line-height: 1;
+  }
+}
+
+.item {
+  position: relative;
+  padding: var(--padding);
+  height: 100%;
+  display: block;
+}
+
+.arrow {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}

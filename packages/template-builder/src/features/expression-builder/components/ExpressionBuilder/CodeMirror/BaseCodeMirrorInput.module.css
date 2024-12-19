@@ -1,0 +1,28 @@
+.wrapper {
+  border-radius: var(--input-radius, var(--mantine-radius-default));
+  border: 1px solid var(--mantine-color-gray-4);
+  overflow: hidden;
+
+  [data-mantine-color-scheme='dark'] & {
+    border-color: var(--mantine-color-dark-4);
+  }
+
+  &_error {
+    border-color: var(--mantine-color-error);
+  }
+
+  &_focused {
+    border-color: var(--mantine-primary-color-filled);
+  }
+
+  &_disabled {
+    &:hover {
+      border: 1px solid gray;
+      z-index: 1;
+    }
+  }
+
+  &:hover {
+    border-color: var(--mantine-primary-color-filled);
+  }
+}

@@ -1,0 +1,17 @@
+version: "3"
+
+
+x-common-block: &default  
+    image: $IMAGE_BRANCH
+    container_name: nodejs-re-constructor-$CI_COMMIT_BRANCH
+    restart: always
+    ports:
+      - "${PORTS}"
+
+services:
+
+  nodejs-re-constructor-master:
+    <<: *default
+
+  nodejs-re-constructor-develop:
+    <<: *default

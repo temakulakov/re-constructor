@@ -1,0 +1,109 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  IMAGE_BRANCH: $CI_REGISTRY/$CI_PROJECT_PATH:$CI_COMMIT_BRANCH
+  IMAGE_PIPELINE_ID: $CI_REGISTRY/$CI_PROJECT_PATH:$CI_PIPELINE_ID
+
+# BUILD #
+
+build-app:
+  image: node:20.11.0-alpine
+  stage: build
+  tags:
+    - builder
+    - worker
+  before_script:
+    - corepack enable
+    - corepack prepare pnpm@latest-8 --activate
+    - pnpm config set store-dir .pnpm-store
+    - pnpm install --frozen-lockfile
+  script:
+    - pnpm run build
+  cache:
+    policy: pull-push
+    key:
+      files:
+        - pnpm-lock.yaml
+    paths:
+      - .pnpm-store/
+  artifacts:
+    expire_in: 1h
+    paths:
+      - apps/constructor/.next/standalone
+  only:
+    - master
+    - develop
+
+build-docker:
+  stage: build
+  needs: ['build-app']
+  image: docker:dind
+  tags:
+    - builder
+    - worker
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - echo $IMAGE_BRANCH
+    - docker build -t $IMAGE_BRANCH .
+    - docker push $IMAGE_BRANCH
+
+    - echo $IMAGE_PIPELINE_ID
+    - docker tag $IMAGE_BRANCH $IMAGE_PIPELINE_ID
+    - docker push $IMAGE_PIPELINE_ID
+  only:
+    - master
+    - develop
+
+# DEPLOY #
+
+.deploy-template:
+  stage: deploy
+  image: docker/compose:debian-1.29.2
+  variables:
+    DOCKER_COMMAND: 'docker-compose -f docker-compose.yml --env-file .env'
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker pull $IMAGE_BRANCH
+    - $DOCKER_COMMAND down || true
+    - $DOCKER_COMMAND up -d nodejs-re-constructor-$CI_COMMIT_BRANCH
+
+deploy_develop:
+  extends: .deploy-template
+  tags:
+    - demo
+    - cms
+  only:
+    refs:
+      - develop
+
+deploy_prod:
+  extends: .deploy-template
+  tags:
+    - production
+    - site
+  only:
+    refs:
+      - master
+
+report:
+  needs: ['deploy_prod']
+  stage: deploy
+  image: docker.finch.fm:5000/dev-ops/java-image-ci:jdk15
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - >
+      chmod 775 gitlab/*.sh;
+      export JS_VERSION=$(sed -n 's|.*"version": "\([^"]*\)".*|\1|p' apps/constructor/package.json);
+      export APP_URL=https://constructor.forms.finch.fm/templates;
+      ./gitlab/report.sh ${CHAT_ID};
+  tags:
+    - production
+    - site
+  only:
+    refs:
+      - master

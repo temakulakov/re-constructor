@@ -1,0 +1,10 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+  padding: rem(8px) rem(12px);
+}
+
+.control {
+  padding: 0 rem(12px);
+}

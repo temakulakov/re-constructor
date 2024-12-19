@@ -1,0 +1,58 @@
+.header {
+  position: relative;
+  height: 100px;
+  display: grid;
+  grid-template-areas: 'logo nav button';
+  grid-template-columns: min-content auto min-content;
+  gap: var(--padding);
+  align-items: center;
+  z-index: 3;
+  box-sizing: content-box;
+
+  & > *:nth-child(1) {
+    grid-area: logo;
+  }
+
+  & > *:nth-child(2) {
+    grid-area: nav;
+    margin-left: auto;
+  }
+
+  & > *:nth-child(3) {
+    grid-area: button;
+    width: 186px;
+  }
+
+  @mixin smaller-than $breakpoint-lg {
+    padding: calc(var(--padding) / 2) 0;
+    align-items: center;
+    height: auto;
+    grid-template-areas:
+      'logo button'
+      'nav nav';
+    grid-template-columns: repeat(2, auto);
+
+    & > *:nth-child(2) {
+      grid-area: nav;
+      margin-left: initial;
+    }
+
+    & > *:nth-child(3) {
+      grid-area: button;
+      width: auto;
+    }
+  }
+}
+
+.logo-wrapper {
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 34px;
+  letter-spacing: -0.05em;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  height: 24px;
+}

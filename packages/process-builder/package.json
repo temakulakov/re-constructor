@@ -1,0 +1,60 @@
+{
+  "name": "@finch-cloud/process-builder",
+  "version": "0.1.0",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs"
+    },
+    "./dist/": "./dist/"
+  },
+  "scripts": {
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "lint": "eslint 'src/**/*.{js,ts,jsx,tsx}' --quiet --fix",
+    "prepublishOnly": "npm run build"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "dependencies": {
+    "@bpmn-io/properties-panel": "^3.18.0",
+    "bpmn-js": "^16.5.0",
+    "bpmn-js-properties-panel": "^5.11.0",
+    "camunda-bpmn-js": "^3.12.1",
+    "clsx": "^2.0.0",
+    "diagram-js": "^13.4.0",
+    "htm": "^3.1.1",
+    "nanoid": "^5.0.1",
+    "tiny-svg": "^3.0.1"
+  },
+  "peerDependencies": {
+    "@finch-cloud/common": "workspace:*",
+    "@mantine/core": "^7.2.2",
+    "@mantine/hooks": "^7.2.2",
+    "@tanstack/react-query": "^4.35.7",
+    "axios": "^1.6.5",
+    "immer": "^10.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "zustand": "^4.4.7"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "eslint": "^8.56.0",
+    "eslint-config-base": "workspace:*",
+    "postcss": "^8.4.30",
+    "postcss-preset-mantine": "^1.12.3",
+    "tsconfig": "workspace:*",
+    "tsup": "8.0.1",
+    "typescript": "^5.3.3"
+  }
+}

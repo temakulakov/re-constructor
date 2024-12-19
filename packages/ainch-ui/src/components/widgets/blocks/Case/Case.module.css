@@ -1,0 +1,40 @@
+.wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--padding);
+  align-items: flex-start;
+  padding: calc(var(--padding) * 2) var(--padding);
+
+  &_gap {
+    padding: calc(var(--padding) * 2) var(--padding) var(--padding);
+  }
+
+  @mixin smaller-than $breakpoint-lg {
+    grid-template-columns: 1fr;
+    padding: var(--padding);
+
+    .caption {
+      position: static;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.caption {
+  text-transform: uppercase;
+  position: absolute;
+  left: var(--padding);
+  top: var(--padding);
+}
+
+.tag {
+  margin-top: calc(var(--padding) * 1.4);
+}
+
+.arrow {
+  position: absolute;
+  top: var(--padding);
+  right: var(--padding);
+  translate: 0 -25%;
+}

@@ -1,0 +1,5 @@
+.wrapper {
+  border-width: 0px;
+  min-height: 0;
+  overflow: auto;
+}

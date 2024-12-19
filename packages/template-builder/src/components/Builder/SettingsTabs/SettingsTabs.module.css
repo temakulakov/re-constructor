@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  max-width: 320px;
+  width: 100%;
+  flex-direction: column;
+  padding: 0;
+  border-left: 1px solid var(--separator-border);
+}
+
+.placeholder {
+  padding: var(--mantine-spacing-sm);
+  text-align: center;
+  justify-self: center;
+}
+
+.panel {
+  border-top: 1px solid var(--separator-border);
+  padding: var(--mantine-spacing-sm);
+  flex: 1;
+  overflow: hidden;
+
+  &_editor {
+    padding: 0;
+  }
+}
+
+.tab {
+  color: var(--mantine-color-dimmed);
+  padding: var(--mantine-spacing-sm) var(--mantine-spacing-md);
+
+  &[data-active] {
+    background-color: transparent;
+    color: var(--mantine-color-text);
+  }
+}

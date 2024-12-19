@@ -1,0 +1,7 @@
+.editor {
+  outline-offset: 4px;
+
+  &:focus-visible {
+    outline: 1px var(--mantine-color-blue-filled) solid;
+  }
+}

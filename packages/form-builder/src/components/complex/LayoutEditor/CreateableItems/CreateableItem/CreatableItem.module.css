@@ -1,0 +1,12 @@
+.wrapper {
+  max-width: 80px;
+  height: 80px;
+  cursor: grab;
+  padding: 8px;
+  align-items: center;
+}
+
+.icon-wrapper {
+  font-size: rem(30px);
+  line-height: 1;
+}

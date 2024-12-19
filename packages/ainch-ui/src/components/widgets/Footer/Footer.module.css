@@ -1,0 +1,37 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: calc(var(--padding) / 2) 0;
+
+  @mixin smaller-than $breakpoint-lg {
+    flex-direction: column;
+    gap: 1em;
+    padding: var(--padding) 0;
+  }
+
+  nav {
+    display: none;
+  }
+}
+
+.copyright {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  height: 24px;
+}

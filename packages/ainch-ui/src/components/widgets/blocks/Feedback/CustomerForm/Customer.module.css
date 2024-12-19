@@ -1,0 +1,54 @@
+.title {
+  line-height: 1.1;
+}
+
+.block {
+  display: grid;
+  gap: var(--padding);
+}
+
+.error {
+  color: red;
+}
+
+.button {
+  color: var(--accent-color);
+}
+
+.link {
+  color: var(--text-color);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  &:has(> *:only-child) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.input {
+  color: var(--text-color);
+  padding-bottom: 1rem;
+  border: none;
+  border-bottom: 1px solid var(--text-color);
+  border-radius: 0;
+  background-color: transparent;
+  outline: none;
+
+  &::placeholder {
+    color: var(--text-color);
+  }
+
+  &:focus::placeholder {
+    opacity: 0;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--padding);
+}

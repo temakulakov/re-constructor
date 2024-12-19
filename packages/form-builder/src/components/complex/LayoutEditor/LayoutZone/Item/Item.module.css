@@ -1,0 +1,41 @@
+.item {
+  position: relative;
+  height: 80px;
+  padding: 8px;
+  border: 1px solid transparent;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex-direction: row;
+
+  &:hover {
+    border: 1px solid var(--mantine-primary-color-filled);
+
+    & .delete-button {
+      opacity: 1;
+    }
+  }
+
+  &_selected {
+    border: 1px solid var(--mantine-primary-color-filled);
+  }
+}
+
+.icon-wrapper {
+  font-size: rem(20px);
+  line-height: 1;
+  margin-right: 4px;
+}
+
+.delete-button {
+  opacity: 0;
+  margin-left: auto;
+}
+
+.name {
+  color: var(--mantine-color-dark-2);
+
+  [data-mantine-color-scheme='dark'] & {
+    color: #5c5f66;
+  }
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>finch</groupId>
+    <artifactId>finch-forms-front</artifactId>
+    <version>${version}</version>
+
+    <properties>
+        <version>0.0.1-SNAPSHOT</version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>finch-all-clients</id>
+            <url>https://nexus.finch.fm/repository/finch-all-clients/</url>
+        </repository>
+        <repository>
+            <id>finch-all-clients-release</id>
+            <url>https://nexus.finch.fm/repository/finch-all-clients-release/</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <outputDirectory>${basedir}/target/classes/finch/forms</outputDirectory>
+                    <resources>
+                        <resource>
+                            <directory>apps/constructor/dist</directory>
+                            <filtering>false</filtering>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>finch-all-clients</id>
+            <name>finch-all-clients</name>
+            <url>https://nexus.finch.fm/repository/finch-all-clients/</url>
+        </snapshotRepository>
+        <repository>
+            <id>finch-all-clients-release</id>
+            <name>finch-all-clients-release</name>
+            <url>https://nexus.finch.fm/repository/finch-all-clients-release/</url>
+        </repository>
+    </distributionManagement>
+
+</project>

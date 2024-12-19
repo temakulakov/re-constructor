@@ -1,0 +1,53 @@
+.wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--padding);
+  padding: calc(var(--padding) * 2) var(--padding);
+
+  @mixin smaller-than $breakpoint-lg {
+    padding: var(--padding);
+  }
+
+  &_gap {
+    padding: calc(var(--padding) * 2) var(--padding) var(--padding);
+  }
+
+  &_link {
+    &:hover {
+      .title {
+        background: linear-gradient(
+          to bottom,
+          transparent 70%,
+          var(--tertiary-accent-color) 70%
+        );
+      }
+    }
+  }
+}
+
+.title {
+  display: inline-block;
+}
+
+.arrow {
+  position: absolute;
+  top: var(--padding);
+  right: var(--padding);
+  translate: 0 -25%;
+}
+
+.text {
+}
+
+.caption {
+  text-transform: uppercase;
+  position: absolute;
+  left: var(--padding);
+  top: var(--padding);
+
+  @mixin smaller-than $breakpoint-lg {
+    position: static;
+    margin-bottom: 0;
+  }
+}

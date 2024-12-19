@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  max-width: 260px;
+  width: 100%;
+  flex-direction: column;
+}
+
+.placeholder {
+  padding: 12px;
+  text-align: center;
+  justify-self: center;
+}

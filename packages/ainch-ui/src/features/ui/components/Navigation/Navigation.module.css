@@ -1,0 +1,28 @@
+.wrapper {
+  display: inline-flex;
+  gap: var(--padding);
+
+  @mixin smaller-than $breakpoint-lg {
+    gap: 1em;
+  }
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+
+  &_active {
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background-color: var(--text-color);
+    }
+  }
+}

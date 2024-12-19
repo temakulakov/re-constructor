@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+    front:
+        build:
+           context: ../
+           dockerfile: gitlab/Dockerfile
+        restart: always
+        environment:
+           - VITE_ENV=DEV
+        ports:
+            - 9000:80
+    front-develop-moex:
+        build:
+           context: ../
+           dockerfile: gitlab/Dockerfile
+        environment:
+           - VITE_ENV=DEV
+        ports:
+            - 9009:80
+    front-develop-moex-demo:
+        build:
+           context: ../
+           dockerfile: gitlab/Dockerfile
+        restart: always
+        environment:
+           - VITE_ENV=DEV
+        ports:
+            - 9010:80

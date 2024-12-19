@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  padding: rem(12px);
+  border-radius: 0 0 8px 8px;
+  font-family: 'fira code', monospace;
+  background-color: var(--mantine-color-teal-filled);
+
+  &_error {
+    background-color: var(--mantine-color-error);
+  }
+}
+
+.result {
+  word-break: break-all;
+}
+
+.title {
+  gap: 4px;
+  align-items: center;
+  padding: 0 8px;
+  position: relative;
+}
